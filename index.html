@@ -49,7 +49,10 @@
     <!-- ===== Navigace ===== -->
     <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold gradient-text">AI Vzdělávání</a>
+            <a href="#" class="flex items-center gap-3 text-2xl font-bold gradient-text">
+                <img src="favicon.ico" alt="Favicon" class="h-8 w-8">
+                <span>AI Vzdělávání</span>
+            </a>
             <nav class="hidden md:flex space-x-8">
                 <a href="#nabidka" class="text-slate-300 hover:text-white transition-colors">Nabídka</a>
                 <a href="#cenik" class="text-slate-300 hover:text-white transition-colors">Ceník</a>
@@ -298,11 +301,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-                        <div class="w-32 h-32 rounded-full bg-slate-700 flex items-center justify-center border-4 border-teal-500">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-slate-500" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
+                        <img class="w-32 h-32 rounded-full object-cover border-4 border-teal-500" src="libor.jpg" alt="Profilová fotka Libora Šuhajdy">
                         <div>
                             <h3 class="text-2xl font-bold text-white">Libor Šuhajda</h3>
                             <p class="gradient-text font-semibold mb-2">Expert na foto a grafiku</p>
@@ -320,9 +319,12 @@
                  <p class="text-slate-400 max-w-2xl mx-auto mb-8">
                      Napište nám. Rádi pro vás připravíme individuální nabídku, ať už pro vaši školu, firmu, nebo komunitní akci.
                  </p>
-                 <a href="mailto:gabriel.kozik@iustoria.cz?subject=Poptávka AI workshopu" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform hover:scale-105 transform inline-block">
+                 <a href="mailto:gabriel@strategix-ai.cz?subject=Poptávka AI workshopu" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform hover:scale-105 transform inline-block">
                     Odeslat poptávku e-mailem
                 </a>
+                <p class="text-slate-400 mt-6">
+                    Nebo nám zavolejte na číslo: <a href="tel:+420720265713" class="font-bold text-white hover:text-cyan-400 transition-colors">+420 720 265 713</a>
+                </p>
             </div>
         </section>
     </main>
@@ -362,5 +364,3 @@
     </script>
 </body>
 </html>
-
-
