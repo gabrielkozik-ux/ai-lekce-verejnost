@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Workshopy a Vzdělávání | Gabriel Kožík & Libor Šuhajda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #22D3EE, #14B8A6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .tab-active {
+            background-color: #0891B2; /* cyan-600 */
+            color: #ffffff;
+            border-color: #0891B2;
+        }
+        .tab-inactive {
+            background-color: #334155; /* slate-700 */
+            color: #94A3B8; /* slate-400 */
+            border-color: #475569; /* slate-600 */
+        }
+        .content-list li {
+            position: relative;
+            padding-left: 1.5rem; /* Space for the icon */
+        }
+        .content-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #22D3EE; /* cyan-400 */
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100">
+
+    <!-- ===== Navigace ===== -->
+    <header class="bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold gradient-text">AI Vzdělávání</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#nabidka" class="text-slate-300 hover:text-white transition-colors">Nabídka</a>
+                <a href="#cenik" class="text-slate-300 hover:text-white transition-colors">Ceník</a>
+                <a href="#lektori" class="text-slate-300 hover:text-white transition-colors">Lektoři</a>
+                <a href="#kontakt" class="text-slate-300 hover:text-white transition-colors">Kontakt</a>
+            </nav>
+            <a href="#kontakt" class="hidden md:block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-lg transition-transform hover:scale-105">
+                Nezávazně poptat
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== Hero Sekce ===== -->
+        <section class="relative text-center py-20 md:py-32 px-6 overflow-hidden">
+             <div class="absolute inset-0 z-0">
+                <img src="https://raw.githubusercontent.com/gabrielkozik-ux/ai-workshop-landing/main/uvodni-obrazek.jpg" alt="Lidé na workshopu o umělé inteligenci" class="w-full h-full object-cover opacity-20">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
+            </div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[50rem] md:h-[50rem] bg-cyan-800/30 rounded-full blur-3xl"></div>
+            
+            <div class="relative z-10 container mx-auto">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight text-white">
+                    Odemkněte potenciál <span class="gradient-text">umělé inteligence</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8">
+                    Praktické workshopy pro školy, firmy i veřejnost. Naučíme vás, jak AI efektivně a bezpečně využívat v každodenním životě i práci.
+                </p>
+                <a href="#nabidka" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform hover:scale-105 transform inline-block">
+                    Prozkoumat nabídku
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== Sekce Nabídky Workshopů ===== -->
+        <section id="nabidka" class="py-20 bg-slate-800/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Naše kurzy a workshopy</h2>
+                    <p class="text-slate-400 mt-2 max-w-2xl mx-auto">Vyberte si cílovou skupinu a objevte programy na míru.</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-10" id="tabs">
+                    <button data-target="skoly" class="tab-button tab-active py-2 px-4 rounded-lg font-semibold transition-colors duration-300">Pro školy</button>
+                    <button data-target="firmy" class="tab-button tab-inactive py-2 px-4 rounded-lg font-semibold transition-colors duration-300">Pro firmy</button>
+                    <button data-target="knihovny" class="tab-button tab-inactive py-2 px-4 rounded-lg font-semibold transition-colors duration-300">Pro veřejnost</button>
+                </div>
+
+                <div id="tab-content">
+                    <!-- Pro školy -->
+                    <div id="skoly" class="tab-pane">
+                        <div class="space-y-12">
+                            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-lg">
+                                <h3 class="text-2xl font-bold mb-2 text-white border-l-4 border-cyan-500 pl-4">1. stupeň ZŠ</h3>
+                                <div class="grid md:grid-cols-2 gap-6 mt-6">
+                                    <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700 flex flex-col">
+                                        <h4 class="text-xl font-bold gradient-text mb-2">Text a data</h4>
+                                        <p class="mb-4 text-slate-300 font-semibold">Lektor: Gabriel Kožík</p>
+                                        <p class="text-slate-400 mb-4">Hravou formou seznámíme děti se světem AI a ukážeme jim, jak být na internetu v bezpečí.</p>
+                                        <ul class="content-list text-slate-300 space-y-2 mb-6 flex-grow">
+                                            <li>Co je to umělá inteligence a kde všude ji potkají.</li>
+                                            <li>Společné generování obrázků na přání dětí.</li>
+                                            <li>Základní pravidla online bezpečnosti a co nesdílet.</li>
+                                        </ul>
+                                        <div class="border-t border-slate-700 pt-4 space-y-3">
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg><span class="text-slate-200 font-bold">100 Kč <span class="font-normal text-slate-400">/ žák</span></span></div>
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.124-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.124-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span class="text-slate-300">Min. 20 žáků</span></div>
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-slate-300">45 minut</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700 flex flex-col">
+                                        <h4 class="text-xl font-bold gradient-text mb-2">Fotky a grafika</h4><p class="mb-4 text-slate-300 font-semibold">Lektor: Libor Šuhajda</p>
+                                        <p class="text-slate-400 mb-4">Podpoříme dětskou kreativitu skrze fotku a AI s důrazem na bezpečné sdílení zážitků.</p>
+                                        <ul class="content-list text-slate-300 space-y-2 mb-6 flex-grow">
+                                            <li>Jak spolu souvisí fotografie a umělá inteligence.</li>
+                                            <li>Praktické tipy, jak vyfotit super fotku mobilem.</li>
+                                            <li>Co je bezpečné fotit a sdílet a čemu se vyhnout.</li>
+                                        </ul>
+                                        <div class="border-t border-slate-700 pt-4 space-y-3">
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg><span class="text-slate-200 font-bold">100 Kč <span class="font-normal text-slate-400">/ žák</span></span></div>
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.124-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.124-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span class="text-slate-300">Min. 20 žáků</span></div>
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-slate-300">45 minut</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-lg">
+                               <h3 class="text-2xl font-bold mb-2 text-white border-l-4 border-cyan-500 pl-4">2. stupeň ZŠ & Střední školy</h3>
+                               <div class="grid md:grid-cols-2 gap-6 mt-6">
+                                   <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700 flex flex-col">
+                                       <h4 class="text-xl font-bold gradient-text mb-2">Text a data</h4><p class="mb-4 text-slate-300 font-semibold">Lektor: Gabriel Kožík</p>
+                                       <p class="text-slate-400 mb-4">Připravíme studenty na budoucnost, naučíme je kriticky myslet a využívat AI jako pomocníka při studiu.</p>
+                                       <ul class="content-list text-slate-300 space-y-2 mb-6 flex-grow">
+                                            <li>AI jako kopilot: praktické využití při studiu a rešerších.</li>
+                                            <li>Základy promptování: jak se správně ptát a dostat nejlepší odpověď.</li>
+                                            <li>Digitální stopa, phishing, fake news a deepfake – jak se bránit.</li>
+                                            <li>Právní a etické minimum: AI Act a budoucnost regulace.</li>
+                                       </ul>
+                                       <div class="border-t border-slate-700 pt-4 space-y-3">
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg><span class="text-slate-200 font-bold">150 Kč <span class="font-normal text-slate-400">/ žák</span></span></div>
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.124-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.124-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span class="text-slate-300">Min. 20 žáků</span></div>
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-slate-300">90 minut</span></div>
+                                       </div>
+                                   </div>
+                                   <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700 flex flex-col">
+                                       <h4 class="text-xl font-bold gradient-text mb-2">Fotky a grafika</h4><p class="mb-4 text-slate-300 font-semibold">Lektor: Libor Šuhajda</p>
+                                       <p class="text-slate-400 mb-4">Propojíme kreativitu s digitálními dovednostmi a ukážeme, jak AI mění tvůrčí profese.</p>
+                                       <ul class="content-list text-slate-300 space-y-2 mb-6 flex-grow">
+                                            <li>Vliv AI na kreativní profese a nové pracovní příležitosti.</li>
+                                            <li>Promptování pro obrázky: jak s AI vytvořit přesně to, co chci.</li>
+                                            <li>Rozpoznání "fake vs. real" a ochrana proti manipulaci.</li>
+                                            <li>Autorská práva v digitálním světě a tvorba vlastního portfolia.</li>
+                                       </ul>
+                                       <div class="border-t border-slate-700 pt-4 space-y-3">
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg><span class="text-slate-200 font-bold">150 Kč <span class="font-normal text-slate-400">/ žák</span></span></div>
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.124-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.124-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span class="text-slate-300">Min. 20 žáků</span></div>
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-slate-300">90 minut</span></div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+
+                    <!-- Pro firmy -->
+                    <div id="firmy" class="tab-pane hidden">
+                        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-lg">
+                               <h3 class="text-2xl font-bold mb-2 text-white border-l-4 border-cyan-500 pl-4">Firmy a freelanceři</h3>
+                               <div class="grid md:grid-cols-2 gap-6 mt-6">
+                                   <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700 flex flex-col">
+                                       <h4 class="text-xl font-bold gradient-text mb-2">Text a data</h4><p class="mb-4 text-slate-300 font-semibold">Lektor: Gabriel Kožík</p>
+                                       <p class="text-slate-400 mb-4">Naučíme váš tým, jak využít AI pro rychlejší práci s textem, rešerše a přípravu podkladů, včetně právních aspektů.</p>
+                                       <ul class="content-list text-slate-300 space-y-2 mb-6 flex-grow">
+                                            <li>AI jako osobní asistent: efektivní rešerše a rychlé shrnutí dokumentů.</li>
+                                            <li>Generování obsahu: od marketingových textů po interní komunikaci.</li>
+                                            <li>Právní minimum: na co si dát pozor z hlediska GDPR a autorských práv.</li>
+                                            <li>Nastavení interních pravidel pro bezpečné a efektivní používání AI.</li>
+                                       </ul>
+                                       <div class="border-t border-slate-700 pt-4 space-y-3">
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg><span class="text-slate-200 font-bold">1200 / 1500 Kč <span class="font-normal text-slate-400">/ os.</span></span></div>
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.124-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.124-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span class="text-slate-300">Min. 10 osob</span></div>
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-slate-300">2 / 3 hodiny</span></div>
+                                       </div>
+                                   </div>
+                                   <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700 flex flex-col">
+                                       <h4 class="text-xl font-bold gradient-text mb-2">Fotky a grafika</h4><p class="mb-4 text-slate-300 font-semibold">Lektor: Libor Šuhajda</p>
+                                       <p class="text-slate-400 mb-4">Zvyšte úroveň svého marketingu. Ukážeme vám, jak s pomocí AI efektivně tvořit vizuály a obsah pro sociální sítě.</p>
+                                       <ul class="content-list text-slate-300 space-y-2 mb-6 flex-grow">
+                                            <li>Význam vizuálního obsahu pro budování značky a prodej.</li>
+                                            <li>Tvorba grafiky a obsahu přes AI: od příspěvků po produktové fotky.</li>
+                                            <li>Efektivní plánování obsahu pro sociální sítě a kampaně.</li>
+                                            <li>Právní aspekty: souhlasy (GDPR) a licence k vizuálnímu obsahu.</li>
+                                       </ul>
+                                       <div class="border-t border-slate-700 pt-4 space-y-3">
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg><span class="text-slate-200 font-bold">1200 / 1500 Kč <span class="font-normal text-slate-400">/ os.</span></span></div>
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.124-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.124-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span class="text-slate-300">Min. 10 osob</span></div>
+                                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-slate-300">2 / 3 hodiny</span></div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                    </div>
+
+                    <!-- Pro veřejnost -->
+                    <div id="knihovny" class="tab-pane hidden">
+                       <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-lg">
+                           <h3 class="text-2xl font-bold mb-2 text-white border-l-4 border-cyan-500 pl-4">Veřejnost & Rodiče</h3>
+                           <div class="grid md:grid-cols-2 gap-6 mt-6">
+                               <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700 flex flex-col">
+                                   <h4 class="text-xl font-bold gradient-text mb-2">Text a data</h4><p class="mb-4 text-slate-300 font-semibold">Lektor: Gabriel Kožík</p>
+                                   <p class="text-slate-400 mb-4">Přednáška pro širokou veřejnost s cílem demystifikovat AI a ukázat, jak ji bezpečně využívat v běžném životě.</p>
+                                    <ul class="content-list text-slate-300 space-y-2 mb-6 flex-grow">
+                                       <li>Příklady AI ze života: kde všude se s ní setkáváme a jak nám pomáhá.</li>
+                                       <li>Bezpečnost, soukromí a ochrana osobních údajů v digitálním světě.</li>
+                                       <li>Blok pro rodiče: kde se děti potkávají s AI a jaká jsou rizika i příležitosti.</li>
+                                   </ul>
+                                   <div class="border-t border-slate-700 pt-4 space-y-3">
+                                       <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg><span class="text-slate-200 font-bold">5000 / 7500 Kč <span class="font-normal text-slate-400">/ akce</span></span></div>
+                                       <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.124-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.124-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span class="text-slate-300">20-80+ osob</span></div>
+                                       <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-slate-300">60 / 90 minut</span></div>
+                                   </div>
+                               </div>
+                               <div class="bg-slate-900/50 p-6 rounded-lg border border-slate-700 flex flex-col">
+                                   <h4 class="text-xl font-bold gradient-text mb-2">Fotky a grafika</h4><p class="mb-4 text-slate-300 font-semibold">Lektor: Libor Šuhajda</p>
+                                   <p class="text-slate-400 mb-4">Přednáška zaměřená na praktické využití AI ve fotografii a prevenci rizik spojených s digitálními médii.</p>
+                                   <ul class="content-list text-slate-300 space-y-2 mb-6 flex-grow">
+                                       <li>Tipy a triky pro focení mobilem a jak AI vylepšuje vaše fotky.</li>
+                                       <li>Deepfake a manipulace: jak je poznat a chránit sebe i své blízké.</li>
+                                       <li>Kyberšikana a prevence: jak bezpečně sdílet fotky dětí.</li>
+                                       <li>Právní a etické minimum pro rodiče a sdílení na sociálních sítích.</li>
+                                   </ul>
+                                   <div class="border-t border-slate-700 pt-4 space-y-3">
+                                       <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg><span class="text-slate-200 font-bold">5000 / 7500 Kč <span class="font-normal text-slate-400">/ akce</span></span></div>
+                                       <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.124-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.124-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span class="text-slate-300">20-80+ osob</span></div>
+                                       <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-slate-300">60 / 90 minut</span></div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ===== Sekce Ceník ===== -->
+        <section id="cenik" class="py-20">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Cenová politika</h2>
+                    <p class="text-slate-400 mt-2 max-w-2xl mx-auto">Flexibilní a transparentní ceny pro každého.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-slate-800 p-8 rounded-xl border border-slate-700">
+                        <h3 class="text-2xl font-bold text-white mb-3">Pro školy</h3>
+                        <p class="text-4xl font-bold gradient-text mb-4">od 100 <span class="text-xl text-slate-400">Kč/žák</span></p>
+                        <p class="text-slate-400">Dostupné vzdělávání pro ZŠ a SŠ s minimální fakturací od 20 žáků.</p>
+                    </div>
+                     <div class="bg-slate-800 p-8 rounded-xl border-2 border-cyan-500 transform lg:scale-105 shadow-2xl shadow-cyan-900/50">
+                        <h3 class="text-2xl font-bold text-white mb-3">Pro firmy</h3>
+                        <p class="text-4xl font-bold gradient-text mb-4">od 1200 <span class="text-xl text-slate-400">Kč/os.</span></p>
+                        <p class="text-slate-400">Intenzivní školení pro týmy s minimální fakturací od 10 osob.</p>
+                    </div>
+                     <div class="bg-slate-800 p-8 rounded-xl border border-slate-700">
+                        <h3 class="text-2xl font-bold text-white mb-3">Pro veřejnost</h3>
+                        <p class="text-4xl font-bold gradient-text mb-4">od 5000 <span class="text-xl text-slate-400">Kč/akce</span></p>
+                        <p class="text-slate-400">Pevná cena pro knihovny a komunitní centra. Vstupenky si řeší organizátor.</p>
+                    </div>
+                </div>
+                <p class="text-center text-slate-500 mt-8">Ceny jsou konečné, nejsme plátci DPH. Cestovné mimo Jihomoravský kraj řešíme individuálně.</p>
+            </div>
+        </section>
+
+        <!-- ===== Sekce Lektoři ===== -->
+        <section id="lektori" class="py-20 bg-slate-800/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Kdo vás workshopy provede?</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                        <img class="w-32 h-32 rounded-full object-cover border-4 border-cyan-500" src="https://raw.githubusercontent.com/gabrielkozik-ux/ai-workshop-landing/main/profilova-fotka.jpg" alt="Profilová fotka Gabriela Kožíka">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Gabriel Kožík</h3>
+                            <p class="gradient-text font-semibold mb-2">AI Expert, advokát a networker</p>
+                            <p class="text-slate-400">Gabriel propojuje svět práva, networkingu a umělé inteligence. Specializuje se na nástroje od Google a pomáhá firmám i jednotlivcům prakticky a bezpečně implementovat AI do jejich procesů.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                        <div class="w-32 h-32 rounded-full bg-slate-700 flex items-center justify-center border-4 border-teal-500">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Libor Šuhajda</h3>
+                            <p class="gradient-text font-semibold mb-2">Expert na foto a grafiku</p>
+                            <p class="text-slate-400">Libor je profesionální fotograf a grafik s vášní pro technologie. Ukáže vám, jak s pomocí AI vytvářet dechberoucí vizuální obsah, ať už fotíte mobilem, nebo připravujete grafiku pro sociální sítě.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Sekce Kontakt ===== -->
+        <section id="kontakt" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Máte zájem o workshop na míru?</h2>
+                 <p class="text-slate-400 max-w-2xl mx-auto mb-8">
+                     Napište nám. Rádi pro vás připravíme individuální nabídku, ať už pro vaši školu, firmu, nebo komunitní akci.
+                 </p>
+                 <a href="mailto:gabriel.kozik@iustoria.cz?subject=Poptávka AI workshopu" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform hover:scale-105 transform inline-block">
+                    Odeslat poptávku e-mailem
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="bg-slate-900 border-t border-slate-800">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-400">
+            <p>&copy; 2024 AI Vzdělávání. Všechna práva vyhrazena.</p>
+            <p class="mt-2">Společný projekt Gabriela Kožíka a Libora Šuhajdy.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => {
+                        t.classList.remove('tab-active');
+                        t.classList.add('tab-inactive');
+                    });
+                    tabPanes.forEach(pane => {
+                        pane.classList.add('hidden');
+                    });
+
+                    tab.classList.remove('tab-inactive');
+                    tab.classList.add('tab-active');
+                    const targetPane = document.getElementById(tab.dataset.target);
+                    if (targetPane) {
+                        targetPane.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
